@@ -1405,14 +1405,14 @@ CEntity* ScriptLoader::LoadMetroidBeta(CStateManager& mgr, CInputStream& in, int
     return nullptr;
 
   std::string name = mgr.HashInstanceName(in);
-  zeus::CTransform xf = LoadEditorTransform(in);
+  //zeus::CTransform xf = LoadEditorTransform(in);
   zeus::CVector3f scale = zeus::CVector3f::ReadBig(in);
   auto pair = CPatternedInfo::HasCorrectParameterCount(in);
   if (!pair.first)
     return nullptr;
 
   CPatternedInfo pInfo(in, pair.second);
-  CActorParameters actParms = LoadActorParameters(in);
+  //CActorParameters actParms = LoadActorParameters(in);
   MP1::CMetroidBetaData metData(in);
   if (!pInfo.GetAnimationParameters().GetACSFile().IsValid())
     return nullptr;
@@ -1989,14 +1989,14 @@ CEntity* ScriptLoader::LoadMetroid(CStateManager& mgr, CInputStream& in, int pro
 
   std::string name = mgr.HashInstanceName(in);
   CPatterned::EFlavorType flavor = CPatterned::EFlavorType(in.readUint32Big());
-  zeus::CTransform xf = LoadEditorTransform(in);
+  //zeus::CTransform xf = LoadEditorTransform(in);
   zeus::CVector3f scale = zeus::CVector3f::ReadBig(in);
   auto pair = CPatternedInfo::HasCorrectParameterCount(in);
   if (!pair.first)
     return nullptr;
 
   CPatternedInfo pInfo(in, pair.second);
-  CActorParameters actParms = LoadActorParameters(in);
+  //CActorParameters actParms = LoadActorParameters(in);
   MP1::CMetroidData metData(in);
   const CAnimationParameters& animParms = pInfo.GetAnimationParameters();
   if (!animParms.GetACSFile().IsValid() || flavor == CPatterned::EFlavorType::One)
